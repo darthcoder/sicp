@@ -6,6 +6,7 @@
 ;; The logic of the function is completely based on the logic
 ;; in SICP just translated to Clojure.
 
+
  (defn average [x y]
   ( / (+ x y) 2.0))
 
@@ -16,12 +17,10 @@
    (< ( Math/abs (- (* guess guess ) x )) 0.001 ))
 
 (defn sqrt-iter [guess x]
-  (cond
+  ( if
     (good-enough? guess x)
     guess
-    :else (sqrt-iter (improve guess x) x)))
-
-
+    (sqrt-iter (improve guess x) x)))
 
 (defn sqrt [x] (sqrt-iter 1.0 x ) )
 
