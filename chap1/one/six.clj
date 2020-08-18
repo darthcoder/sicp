@@ -56,11 +56,16 @@
 ;;
 ;;
 ;; ANSWER ::
+;; From point 19  pp 45:
+;; A minor difference between if and cond is that the 〈e 〉 part of each cond clause
+;; may be a sequence of expressions. If the corresponding 〈p 〉 is found to be true, the
+;; expressions 〈e 〉 are evaluated in sequence and the value of the final expression in
+;; the sequence is returned as the value of the cond. In an if expression, however, the
+;; 〈consequent 〉 and 〈alternative 〉 must be single expressions.
 ;;
-;; Since the languages of Scheme and Clojure aren't the same implementation
-;; wise, I cannot think of an easy way to translate the scheme code to
-;; clojure that gets the effect.
+;; Since the new-if is based on cond, it keeps re-evaluating the statement that is true
+;; and never returns leading to eventually running out of memory. This problem doesn't
+;; occur with the normal if method.
 ;;
-;; The effect is basically the fact that it won't loop.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
