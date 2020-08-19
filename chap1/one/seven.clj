@@ -17,19 +17,14 @@
  (defn average [x y]
   ( / (+ x y) 2.0))
 
-;; (defn improve [guess x]
-;;   ( average guess (/ x guess) ))
+(defn improve [guess x]
+  ( average guess (/ x guess) ))
 
 ;;  (defn good-enough? [guess x]
 ;;    (< ( Math/abs (- (* guess guess ) x )) 0.001 ))
 
-(defn improve [guess old-guess]
- (abs (- (guess old-guess)) ) )
-
-(defn good-enough? [guess old-guess]
-  (< (Math/abs (- (guess old-guess))) 0.001))
-
-
+(defn good-enough? [guess x]
+  (= (improve guess x) guess))
 
 (defn sqrt-iter [guess x]
   ( if
@@ -39,4 +34,4 @@
 
 (defn sqrt [x] (sqrt-iter 1.0 x ) )
 
-(println (sqrt 100000000 ))
+(println (sqrt 9.0 ))
